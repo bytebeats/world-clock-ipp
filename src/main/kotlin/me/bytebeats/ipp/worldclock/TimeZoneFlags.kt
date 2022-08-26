@@ -4,7 +4,6 @@ import com.intellij.openapi.diagnostic.Logger
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.function.Consumer
 
 
 private val LOG: Logger = Logger.getInstance("WorldClock")
@@ -16,7 +15,7 @@ private val LOG: Logger = Logger.getInstance("WorldClock")
 private val DATETIME_FORMATTER_12H = DateTimeFormatter.ofPattern("E hh:mm a")
 private val DATETIME_FORMATTER_24H = DateTimeFormatter.ofPattern("E HH:mm")
 
-fun getCurrentDate(timeZoneId: ZoneId, use24HDateFormat: Boolean): String {
+fun getCurrentDateWith(timeZoneId: ZoneId, use24HDateFormat: Boolean): String {
     val dtf = if (use24HDateFormat) DATETIME_FORMATTER_24H else DATETIME_FORMATTER_12H
     return dtf.format(LocalDateTime.now(timeZoneId))
 }

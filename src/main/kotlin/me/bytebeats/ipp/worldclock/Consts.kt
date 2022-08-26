@@ -3,11 +3,20 @@ package me.bytebeats.ipp.worldclock
 const val WORLD_CLOCK_WIDGET_ID_1 = "world-clock-widget-id-1"
 const val WORLD_CLOCK_WIDGET_ID_2 = "world-clock-widget-id-2"
 
+//default time zones
 const val WORLD_CLOCK_DEFAULT_TIME_ZONE_1 = "Asia/Shanghai"
 const val WORLD_CLOCK_DEFAULT_TIME_ZONE_2 = "America/Montreal"
 
-const val CP_KEY_CLOCK_TIME_ZONE_1 = "CP_KEY_CLOCK_TIME_ZONE_1"
-const val CP_KEY_CLOCK_TIME_ZONE_2 = "CP_KEY_CLOCK_TIME_ZONE_2"
-const val CP_KEY_CLOCK_ENABLE_1 = "CP_KEY_CLOCK_ENABLE_1"
-const val CP_KEY_CLOCK_ENABLE_2 = "CP_KEY_CLOCK_ENABLE_2"
-const val CP_KEY_USE_24H_TIME_FORMAT = "CP_KEY_USE_24H_TIME_FORMAT"
+//property names for PropertyComponent
+const val PC_KEY_CLOCK_TIME_ZONE_1 = "PC_KEY_CLOCK_TIME_ZONE_1"
+const val PC_KEY_CLOCK_TIME_ZONE_2 = "PC_KEY_CLOCK_TIME_ZONE_2"
+const val PC_KEY_CLOCK_ENABLE_1 = "PC_KEY_CLOCK_ENABLE_1"
+const val PC_KEY_CLOCK_ENABLE_2 = "PC_KEY_CLOCK_ENABLE_2"
+const val PC_KEY_USE_24H_TIME_FORMAT = "PC_KEY_USE_24H_TIME_FORMAT"
+
+//standard time zone
+const val GMT = "GMT"
+const val UTC = "UTC"
+const val CST = "CST"
+const val EST = "EST"
+const val PST = "PST"
