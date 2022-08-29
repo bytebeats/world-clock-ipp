@@ -18,7 +18,6 @@ import java.util.TimerTask;
 public class DigitalClockStatusWidget implements StatusBarWidget {
     private final String widgetID;
     private final StatusBar statusBar;
-
     private final PropertiesComponent pc = PropertiesComponent.getInstance();
 
     private Timer timer;
@@ -28,7 +27,6 @@ public class DigitalClockStatusWidget implements StatusBarWidget {
         this.widgetID = widgetID;
         statusBar = WindowManager.getInstance().getStatusBar(project);
     }
-
 
     @Override
     public @NonNls
@@ -42,8 +40,8 @@ public class DigitalClockStatusWidget implements StatusBarWidget {
     }
 
     private void startClockIfNot(StatusBar statusBar) {
-        if (ConstsKt.WORLD_CLOCK_WIDGET_ID_1.equals(widgetID) && pc.getBoolean(ConstsKt.CP_KEY_CLOCK_ENABLE_1, true)
-                || ConstsKt.WORLD_CLOCK_WIDGET_ID_2.equals(widgetID) && pc.getBoolean(ConstsKt.CP_KEY_CLOCK_ENABLE_2, true)) {
+        if (ConstsKt.WORLD_CLOCK_WIDGET_ID_1.equals(widgetID) && pc.getBoolean(ConstsKt.PC_KEY_CLOCK_ENABLE_1, true)
+                || ConstsKt.WORLD_CLOCK_WIDGET_ID_2.equals(widgetID) && pc.getBoolean(ConstsKt.PC_KEY_CLOCK_ENABLE_2, true)) {
             try {
                 timer = new Timer();
                 timer.schedule(new TimerTask() {
@@ -74,6 +72,6 @@ public class DigitalClockStatusWidget implements StatusBarWidget {
 
     @Override
     public @Nullable WidgetPresentation getPresentation() {
-        return StatusBarWidget.super.getPresentation();
+        return new WorldClockPresentation(widgetID);
     }
 }
