@@ -8,6 +8,7 @@ import me.bytebeats.ipp.worldclock.*
 import java.awt.event.MouseEvent
 import java.time.Instant
 import java.time.ZoneId
+import javax.swing.Icon
 
 class WorldClockPresentation(private val widgetId: String) : StatusBarWidget.MultipleTextValuesPresentation {
     private val pc by lazy { PropertiesComponent.getInstance() }
@@ -56,5 +57,22 @@ class WorldClockPresentation(private val widgetId: String) : StatusBarWidget.Mul
             return "$timeZone: ${getCurrentDateWith(zoneId, pc.getBoolean(PC_KEY_USE_24H_TIME_FORMAT))}"
         }
         return " ${getCurrentDateWith(ZoneId.of(timeZone), pc.getBoolean(PC_KEY_USE_24H_TIME_FORMAT))}"
+    }
+
+    override fun getIcon(): Icon? {
+        val zoneId = if (widgetId == WORLD_CLOCK_WIDGET_ID_1) {
+            if (pc.getBoolean(PC_KEY_CLOCK_ENABLE_1, true)) {
+                pc.getValue(PC_KEY_CLOCK_TIME_ZONE_1, WORLD_CLOCK_DEFAULT_TIME_ZONE_1)
+            } else {
+                return null
+            }
+        } else {
+            if (pc.getBoolean(PC_KEY_CLOCK_ENABLE_2, true)) {
+                pc.getValue(PC_KEY_CLOCK_TIME_ZONE_2, WORLD_CLOCK_DEFAULT_TIME_ZONE_2)
+            } else {
+                return null
+            }
+        }
+        return getFlagIcon(zoneId)
     }
 }
