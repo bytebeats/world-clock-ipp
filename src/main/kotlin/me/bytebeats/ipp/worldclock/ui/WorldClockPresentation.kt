@@ -15,8 +15,8 @@ class WorldClockPresentation(private val widgetId: String) : StatusBarWidget.Mul
 
     override fun getTooltipText(): String? =
         getTooltipFromTimeZone(
-            if (widgetId == WORLD_CLOCK_WIDGET_ID_1) pc.getValue(PC_KEY_CLOCK_TIME_ZONE_1)
-            else pc.getValue(PC_KEY_CLOCK_TIME_ZONE_2)
+            if (widgetId == CLOCK_WIDGET_ID_1) pc.getValue(PC_KEY_TIME_ZONE_1)
+            else pc.getValue(PC_KEY_TIME_ZONE_2)
         )
 
     private fun getTooltipFromTimeZone(timeZone: String?): String? {
@@ -34,15 +34,15 @@ class WorldClockPresentation(private val widgetId: String) : StatusBarWidget.Mul
     override fun getPopupStep(): ListPopup? = null
 
     override fun getSelectedValue(): String? {
-        return if (widgetId == WORLD_CLOCK_WIDGET_ID_1) {
+        return if (widgetId == CLOCK_WIDGET_ID_1) {
             if (pc.getBoolean(PC_KEY_CLOCK_ENABLE_1, true)) {
-                getCurrentDateWithTimeZone(pc.getValue(PC_KEY_CLOCK_TIME_ZONE_1, WORLD_CLOCK_DEFAULT_TIME_ZONE_1))
+                getCurrentDateWithTimeZone(pc.getValue(PC_KEY_TIME_ZONE_1, DEFAULT_TIME_ZONE_1))
             } else {
                 null
             }
         } else {
             if (pc.getBoolean(PC_KEY_CLOCK_ENABLE_2, true)) {
-                getCurrentDateWithTimeZone(pc.getValue(PC_KEY_CLOCK_ENABLE_2, WORLD_CLOCK_DEFAULT_TIME_ZONE_2))
+                getCurrentDateWithTimeZone(pc.getValue(PC_KEY_CLOCK_ENABLE_2, DEFAULT_TIME_ZONE_2))
             } else {
                 null
             }
@@ -60,15 +60,15 @@ class WorldClockPresentation(private val widgetId: String) : StatusBarWidget.Mul
     }
 
     override fun getIcon(): Icon? {
-        val zoneId = if (widgetId == WORLD_CLOCK_WIDGET_ID_1) {
+        val zoneId = if (widgetId == CLOCK_WIDGET_ID_1) {
             if (pc.getBoolean(PC_KEY_CLOCK_ENABLE_1, true)) {
-                pc.getValue(PC_KEY_CLOCK_TIME_ZONE_1, WORLD_CLOCK_DEFAULT_TIME_ZONE_1)
+                pc.getValue(PC_KEY_TIME_ZONE_1, DEFAULT_TIME_ZONE_1)
             } else {
                 return null
             }
         } else {
             if (pc.getBoolean(PC_KEY_CLOCK_ENABLE_2, true)) {
-                pc.getValue(PC_KEY_CLOCK_TIME_ZONE_2, WORLD_CLOCK_DEFAULT_TIME_ZONE_2)
+                pc.getValue(PC_KEY_TIME_ZONE_2, DEFAULT_TIME_ZONE_2)
             } else {
                 return null
             }

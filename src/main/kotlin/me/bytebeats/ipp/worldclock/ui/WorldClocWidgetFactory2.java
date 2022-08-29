@@ -13,7 +13,7 @@ public class WorldClocWidgetFactory2 implements StatusBarWidgetFactory {
     @Override
     public @NonNls
     @NotNull String getId() {
-        return ConstsKt.WORLD_CLOCK_WIDGET_ID_2;
+        return ConstsKt.CLOCK_WIDGET_ID_2;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class WorldClocWidgetFactory2 implements StatusBarWidgetFactory {
 
     @Override
     public @NotNull StatusBarWidget createWidget(@NotNull Project project) {
-        return new DigitalClockStatusWidget(ConstsKt.WORLD_CLOCK_WIDGET_ID_2, project);
+        return new DigitalClockStatusWidget(ConstsKt.CLOCK_WIDGET_ID_2, project);
     }
 
     @Override

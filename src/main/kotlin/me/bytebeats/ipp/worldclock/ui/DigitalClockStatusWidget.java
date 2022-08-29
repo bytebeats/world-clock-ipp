@@ -40,8 +40,8 @@ public class DigitalClockStatusWidget implements StatusBarWidget {
     }
 
     private void startClockIfNot(StatusBar statusBar) {
-        if (ConstsKt.WORLD_CLOCK_WIDGET_ID_1.equals(widgetID) && pc.getBoolean(ConstsKt.PC_KEY_CLOCK_ENABLE_1, true)
-                || ConstsKt.WORLD_CLOCK_WIDGET_ID_2.equals(widgetID) && pc.getBoolean(ConstsKt.PC_KEY_CLOCK_ENABLE_2, true)) {
+        if (ConstsKt.CLOCK_WIDGET_ID_1.equals(widgetID) && pc.getBoolean(ConstsKt.PC_KEY_CLOCK_ENABLE_1, true)
+                || ConstsKt.CLOCK_WIDGET_ID_2.equals(widgetID) && pc.getBoolean(ConstsKt.PC_KEY_CLOCK_ENABLE_2, true)) {
             try {
                 timer = new Timer();
                 timer.schedule(new TimerTask() {
