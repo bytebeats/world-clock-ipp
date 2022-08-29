@@ -24,6 +24,13 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <statusBarWidgetFactory id="ipp-world-clock-1"
+                                implementation="me.bytebeats.ipp.worldclock.ui.WorldClocWidgetFactory1"/>
+        <statusBarWidgetFactory id="ipp-world-clock-2"
+                                implementation="me.bytebeats.ipp.worldclock.ui.WorldClocWidgetFactory2"
+                                order="first, after ipp-world-clock-1"/>
+        <applicationConfigurable id="ipp-world-clock"
+                                 instance="me.bytebeats.ipp.worldclock.ui.form.SettingsForm"
+                                 displayName="World Clock"/>
     </extensions>
 </idea-plugin>
